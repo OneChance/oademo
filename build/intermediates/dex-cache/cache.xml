@@ -12,21 +12,21 @@
     </item>
     <item
         is-multidex="true"
-        jar="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
-        <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-24.2.1_4139d072fdfe280ab1940a49632d68aa8fb4e170\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
         sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
         <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-24.2.1_6411fb7c068f9761dd6727e201754836e6943bf8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-24.2.1_4139d072fdfe280ab1940a49632d68aa8fb4e170\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -66,6 +66,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-24.2.1_93aabd5b541a3bb04bc84fc9fd8b2f1b06d5e1f0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\libs\internal_impl-24.2.1.jar"
         jumboMode="true"
         optimize="true"
@@ -81,15 +90,6 @@
         revision="24.0.2"
         sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
         <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-24.2.1_16cc0768fc3b227b2b48bf75e2ac03c92c2c5fbf\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
-        <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-24.2.1_93aabd5b541a3bb04bc84fc9fd8b2f1b06d5e1f0\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -129,6 +129,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\exploded-aar\com.yalantis\phoenix\1.2.3\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="4dfe2dd3f402072c5268f341830cdc5263187074">
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.yalantis-phoenix-1.2.3_478aae465f7bc2e7af85bf67b1b56fa1a2e338d6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\24.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -165,21 +174,21 @@
     </item>
     <item
         is-multidex="true"
+        jar="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="34ba5d0c88320a1fb1989b65809daa0e7114a9dc">
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_cc88a8c89e717c0da3dde08b44c224efca63b017\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\exploded-aar\com.android.support\design\24.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
         sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
         <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-24.2.1_8bc8586b80e6c9a72ee02a144d8b452c00b72126\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="0bb967ee82ca4671ed118d4a507e3f8ca1ee1cf2">
-        <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_cc88a8c89e717c0da3dde08b44c224efca63b017\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -223,7 +232,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
-        sha1="348a2712022388dbb1e8a64a3c266bcea295606e">
+        sha1="3a666109342f971fe58483d0a4fb860eba6abb97">
         <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_2e0d4c2259c91f77a78807b9f69e409ee2bb8f5f\classes.dex" />
     </item>
 

@@ -1,15 +1,25 @@
 package com.zh.oademo.oademo.common;
 
 
+import com.ashokvarma.bottomnavigation.BadgeItem;
+
 public class TabItem {
     private int icon;
     private int text;
     private int color;
+    private BadgeItem numberBadgeItem;
 
-    public TabItem(int icon, int text, int color) {
+    public TabItem(int icon, int text, int color, int number) {
         this.icon = icon;
         this.text = text;
         this.color = color;
+
+        if (number > 0) {
+            this.numberBadgeItem = new BadgeItem()
+                    .setBorderWidth(2)
+                    .setText("" + number)
+                    .setHideOnSelect(true);
+        }
     }
 
     public int getIcon() {
@@ -34,5 +44,13 @@ public class TabItem {
 
     public void setColor(int color) {
         this.color = color;
+    }
+
+    public BadgeItem getNumberBadgeItem() {
+        return numberBadgeItem;
+    }
+
+    public void setNumberBadgeItem(BadgeItem numberBadgeItem) {
+        this.numberBadgeItem = numberBadgeItem;
     }
 }

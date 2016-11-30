@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.zh.oademo.oademo.MyApplication;
 import com.zh.oademo.oademo.R;
 import com.zh.oademo.oademo.mainframe.MainPageActivity;
 
@@ -66,6 +67,8 @@ public class LoginActivity extends AppCompatActivity {
                 attemptLogin();
             }
         });
+
+        ((MyApplication) getApplication()).getInstance().addActivity(this);
     }
 
     /**
@@ -151,6 +154,17 @@ public class LoginActivity extends AppCompatActivity {
             mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
             mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        ((MyApplication) getApplication()).getInstance().exit();
+    }
+
+    @Override
+    protected void onResume() {
+        showProgress(false);
+        super.onResume();
     }
 }
 

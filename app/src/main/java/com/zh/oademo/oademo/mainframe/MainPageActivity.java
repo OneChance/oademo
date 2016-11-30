@@ -15,6 +15,7 @@ import android.view.MenuItem;
 
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
+import com.zh.oademo.oademo.MyApplication;
 import com.zh.oademo.oademo.R;
 import com.zh.oademo.oademo.common.BaseFragment;
 import com.zh.oademo.oademo.common.TabItem;
@@ -34,7 +35,10 @@ public class MainPageActivity extends AppCompatActivity
     DrawerLayout drawer;
     @InjectView(R.id.bottom_navigation_bar)
     BottomNavigationBar bottomNavigationBar;
-    List<BaseFragment> fragments = new ArrayList<BaseFragment>();
+    @InjectView(R.id.toolbar)
+    Toolbar toolbar;
+
+    List<BaseFragment> fragments = new ArrayList<>();
     int lastSelectedPosition = 0;
     FragmentManager fm;
 
@@ -44,16 +48,15 @@ public class MainPageActivity extends AppCompatActivity
         setContentView(R.layout.activity_main_frame);
         ButterKnife.inject(this);
         initView();
+        ((MyApplication) getApplication()).getInstance().addActivity(this);
     }
 
     private void initView() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        fm = getSupportFragmentManager();
 
+        setSupportActionBar(toolbar);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
+        drawer.addDrawerListener(toggle);
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
@@ -61,9 +64,12 @@ public class MainPageActivity extends AppCompatActivity
 
         bottomNavigationBar.setTabSelectedListener(this);
         bottomNavigationBar.clearAll();
+        bottomNavigationBar.setMode(BottomNavigationBar.MODE_FIXED);
         bottomNavigationBar.setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_STATIC);
 
         setTabs(getTabs());
+
+        fm = getSupportFragmentManager();
 
         fragments.add(new MainPageFragment());
         fragments.add(new WorktodoFragment());
@@ -73,17 +79,17 @@ public class MainPageActivity extends AppCompatActivity
 
     public List<TabItem> getTabs() {
         List<TabItem> tabs = new ArrayList<>();
-        tabs.add(new TabItem(R.mipmap.ic_home_white_24dp, R.string.tab_item_home, R.color.colorPrimary));
-        tabs.add(new TabItem(R.mipmap.ic_book_white_24dp, R.string.tab_item_worktodo, R.color.colorPrimary));
-        tabs.add(new TabItem(R.mipmap.ic_music_note_white_24dp, R.string.tab_item_flows, R.color.colorPrimary));
-        tabs.add(new TabItem(R.mipmap.ic_tv_white_24dp, R.string.tab_item_contact, R.color.colorPrimary));
+        tabs.add(new TabItem(R.mipmap.ic_home_white_24dp, R.string.tab_item_home, R.color.colorPrimary, 0));
+        tabs.add(new TabItem(R.mipmap.ic_book_white_24dp, R.string.tab_item_worktodo, R.color.colorPrimary, 3));
+        tabs.add(new TabItem(R.mipmap.ic_music_note_white_24dp, R.string.tab_item_flows, R.color.colorPrimary, 0));
+        tabs.add(new TabItem(R.mipmap.ic_tv_white_24dp, R.string.tab_item_contact, R.color.colorPrimary, 0));
         return tabs;
     }
 
     public void setTabs(List<TabItem> tabs) {
 
         for (TabItem item : tabs) {
-            bottomNavigationBar.addItem(new BottomNavigationItem(item.getIcon(), item.getText()).setActiveColorResource(item.getColor()));
+            bottomNavigationBar.addItem(new BottomNavigationItem(item.getIcon(), item.getText()).setActiveColorResource(item.getColor()).setBadgeItem(item.getNumberBadgeItem()));
         }
 
         bottomNavigationBar.setFirstSelectedPosition(lastSelectedPosition > (getTabs().size() - 1) ? (getTabs().size() - 1) : lastSelectedPosition)
@@ -156,6 +162,8 @@ public class MainPageActivity extends AppCompatActivity
     @Override
     public void onTabSelected(int position) {
 
+        MyApplication.mainPageTab = position;
+
         if (fragments != null) {
             if (position < fragments.size()) {
                 FragmentTransaction transaction = fm.beginTransaction();
@@ -164,6 +172,14 @@ public class MainPageActivity extends AppCompatActivity
                 transaction.commit();
             }
         }
+    }
+
+    @Override
+    protected void onResume() {
+
+        bottomNavigationBar.selectTab(MyApplication.mainPageTab);
+
+        super.onResume();
     }
 
     @Override
