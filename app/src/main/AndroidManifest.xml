@@ -11,26 +11,30 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity
             android:name=".sign.LoginActivity"
             android:label=""
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".mainframe.MainPageActivity"
             android:label=""
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-
+            android:screenOrientation="portrait" />
+        
         <activity
             android:name=".worktodo.WorkActivity"
             android:label=""
             android:parentActivityName=".mainframe.MainPageActivity"
             android:screenOrientation="portrait" />
+
+        <activity android:name=".mainpage.ImageContentActivity"></activity>
     </application>
 
 </manifest>

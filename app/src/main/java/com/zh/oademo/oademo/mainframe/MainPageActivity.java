@@ -1,15 +1,11 @@
 package com.zh.oademo.oademo.mainframe;
 
 import android.os.Bundle;
-import android.support.design.widget.NavigationView;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -29,14 +25,12 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 
 public class MainPageActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, BottomNavigationBar.OnTabSelectedListener {
+        implements BottomNavigationBar.OnTabSelectedListener {
 
-    @InjectView(R.id.drawer_layout)
-    DrawerLayout drawer;
+
     @InjectView(R.id.bottom_navigation_bar)
     BottomNavigationBar bottomNavigationBar;
-    @InjectView(R.id.toolbar)
-    Toolbar toolbar;
+
 
     List<BaseFragment> fragments = new ArrayList<>();
     int lastSelectedPosition = 0;
@@ -52,15 +46,6 @@ public class MainPageActivity extends AppCompatActivity
     }
 
     private void initView() {
-
-        setSupportActionBar(toolbar);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
-
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
 
         bottomNavigationBar.setTabSelectedListener(this);
         bottomNavigationBar.clearAll();
@@ -98,7 +83,16 @@ public class MainPageActivity extends AppCompatActivity
 
     private void setDefaultFragment() {
         FragmentTransaction transaction = fm.beginTransaction();
-        transaction.replace(R.id.layFrame, fragments.get(0));
+
+        for (int i = 0; i < fragments.size(); i++) {
+            transaction.add(R.id.layFrame, fragments.get(i));
+            if (i == 0) {
+                transaction.show(fragments.get(i));
+            } else {
+                transaction.hide(fragments.get(i));
+            }
+        }
+
         transaction.commit();
     }
 
@@ -134,42 +128,17 @@ public class MainPageActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
-        }
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
-    }
 
     @Override
     public void onTabSelected(int position) {
-
-        MyApplication.mainPageTab = position;
-
         if (fragments != null) {
             if (position < fragments.size()) {
                 FragmentTransaction transaction = fm.beginTransaction();
-                Fragment fragment = fragments.get(position);
-                transaction.replace(R.id.layFrame, fragment);
-                transaction.commit();
+                //transaction.hide(fragments.get(MyApplication.mainPageTab)).show(fragments.get(position)).commit();
+
+                transaction.replace(R.id.layFrame, fragments.get(position)).commit();
+
+                MyApplication.mainPageTab = position;
             }
         }
     }
