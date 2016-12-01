@@ -31,10 +31,11 @@ public class MainPageActivity extends AppCompatActivity
     @InjectView(R.id.bottom_navigation_bar)
     BottomNavigationBar bottomNavigationBar;
 
-
-    List<BaseFragment> fragments = new ArrayList<>();
     int lastSelectedPosition = 0;
     FragmentManager fm;
+
+    MainPageFragment mainPageFragment;
+    WorktodoFragment worktodoFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,10 +57,14 @@ public class MainPageActivity extends AppCompatActivity
 
         fm = getSupportFragmentManager();
 
-        fragments.add(new MainPageFragment());
-        fragments.add(new WorktodoFragment());
+        mainPageFragment = new MainPageFragment();
+        worktodoFragment = new WorktodoFragment();
 
-        setDefaultFragment();
+        FragmentTransaction transaction = fm.beginTransaction();
+        transaction.replace(R.id.layFrame, mainPageFragment);
+
+        transaction.commit();
+
     }
 
     public List<TabItem> getTabs() {
@@ -81,20 +86,6 @@ public class MainPageActivity extends AppCompatActivity
                 .initialise();
     }
 
-    private void setDefaultFragment() {
-        FragmentTransaction transaction = fm.beginTransaction();
-
-        for (int i = 0; i < fragments.size(); i++) {
-            transaction.add(R.id.layFrame, fragments.get(i));
-            if (i == 0) {
-                transaction.show(fragments.get(i));
-            } else {
-                transaction.hide(fragments.get(i));
-            }
-        }
-
-        transaction.commit();
-    }
 
     @Override
     public void onBackPressed() {
@@ -131,16 +122,24 @@ public class MainPageActivity extends AppCompatActivity
 
     @Override
     public void onTabSelected(int position) {
-        if (fragments != null) {
-            if (position < fragments.size()) {
-                FragmentTransaction transaction = fm.beginTransaction();
-                //transaction.hide(fragments.get(MyApplication.mainPageTab)).show(fragments.get(position)).commit();
 
-                transaction.replace(R.id.layFrame, fragments.get(position)).commit();
+        BaseFragment currentFragment = getCurrentFragment(position);
 
-                MyApplication.mainPageTab = position;
-            }
+        if (currentFragment != null) {
+            MyApplication.mainPageTab = position;
+            FragmentTransaction transaction = fm.beginTransaction();
+            transaction.replace(R.id.layFrame, currentFragment).commit();
         }
+    }
+
+    public BaseFragment getCurrentFragment(int position) {
+        switch (position) {
+            case 0:
+                return mainPageFragment;
+            case 1:
+                return worktodoFragment;
+        }
+        return null;
     }
 
     @Override
