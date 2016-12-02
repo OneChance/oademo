@@ -5,11 +5,16 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.zh.oademo.oademo.R;
 
-public class ImageContentActivity extends AppCompatActivity {
+import butterknife.ButterKnife;
+
+public class NewsActivity extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_image_content);
+        setContentView(R.layout.activity_news);
+        ButterKnife.inject(this);
     }
+
 }

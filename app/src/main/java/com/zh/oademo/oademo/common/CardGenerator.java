@@ -14,6 +14,7 @@ public class CardGenerator {
         SMALL_IMAGE_CARD,
         BIG_IMAGE_CARD,
         TEXT_CARD,
+        TITLE_CARD,
         BASIC_IMAGE_BUTTON_CARD,
         BASIC_BUTTONS_CARD,
         LIST_CARD
@@ -37,6 +38,8 @@ public class CardGenerator {
                 return createBigImageCard(context, content);
             case TEXT_CARD:
                 return createTextCard(context, content);
+            case TITLE_CARD:
+                return createTitleCard(context, content);
             default:
         }
 
@@ -80,6 +83,18 @@ public class CardGenerator {
                 .setLayout(R.layout.material_big_image_card_zh)
                 .setTitle(content.getTitle())
                 .setDescription(content.getDescription())
+                .endConfig()
+                .build();
+
+        return card;
+    }
+
+    public Card createTitleCard(Context context, CardContent content) {
+        Card card = new Card.Builder(context)
+                .setTag("TEXT_CARD")
+                .withProvider(new CardProvider())
+                .setLayout(R.layout.material_title_card_zh)
+                .setTitle(content.getTitle())
                 .endConfig()
                 .build();
 

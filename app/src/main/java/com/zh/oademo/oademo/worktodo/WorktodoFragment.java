@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
@@ -38,6 +39,8 @@ public class WorktodoFragment extends BaseFragment {
     MaterialSearchView searchView;
     @InjectView(R.id.toolbar)
     Toolbar toolbar;
+    @InjectView(R.id.refresh_component)
+    SwipeRefreshLayout refreshComponent;
 
     private Context context;
     List<WorkContent> contents;
@@ -58,13 +61,8 @@ public class WorktodoFragment extends BaseFragment {
         context = getActivity();
 
         contents = new ArrayList<>();
-        contents.add(new WorkContent("个人资金", "123412", "", CardGenerator.CARDTYPE.TEXT_CARD, "0"));
-        contents.add(new WorkContent("立项申请", "742342", "", CardGenerator.CARDTYPE.TEXT_CARD, "1"));
-        contents.add(new WorkContent("出差审批", "298764", "", CardGenerator.CARDTYPE.TEXT_CARD, "2"));
 
-        for (CardContent content : contents) {
-            worklist.getAdapter().add(CardGenerator.getInstance().generateCard(getActivity(), content.getCardtype(), content));
-        }
+        getWorkData();
 
         worklist.addOnItemTouchListener(new RecyclerItemClickListener.OnItemClickListener() {
 
@@ -79,8 +77,83 @@ public class WorktodoFragment extends BaseFragment {
             }
         });
 
+        searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                queryContent(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
+
+        searchView.setOnSearchViewListener(new MaterialSearchView.SearchViewListener() {
+            @Override
+            public void onSearchViewShown() {
+            }
+
+            @Override
+            public void onSearchViewClosed() {
+
+            }
+        });
+
+        refreshComponent.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                // 执行刷新操作
+                refreshComponent.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        getWorkData();
+
+                        refreshComponent.setRefreshing(false);
+                    }
+                }, 500);
+
+            }
+        });
+
+        refreshComponent.setColorSchemeResources(android.R.color.holo_blue_light, android.R.color.holo_red_light, android.R.color.holo_orange_light, android.R.color.holo_green_light);
+
 
         return view;
+    }
+
+    public void addCards() {
+
+        worklist.getAdapter().clearAll();
+
+        for (CardContent content : contents) {
+            worklist.getAdapter().add(CardGenerator.getInstance().generateCard(getActivity(), content.getCardtype(), content));
+        }
+    }
+
+    public void getWorkData() {
+        contents.clear();
+        contents.add(new WorkContent("个人资金[123412]", "", "", CardGenerator.CARDTYPE.TITLE_CARD, "0"));
+        contents.add(new WorkContent("立项申请[742342]", "", "", CardGenerator.CARDTYPE.TITLE_CARD, "1"));
+        contents.add(new WorkContent("出差审批[298764]", "", "", CardGenerator.CARDTYPE.TITLE_CARD, "2"));
+        addCards();
+    }
+
+    public void queryContent(String query) {
+
+        getWorkData();
+
+        if (!query.equals("")) {
+            for (int i = 0; i < contents.size(); i++) {
+                if (!contents.get(i).getTitle().contains(query)) {
+                    contents.remove(i);
+                    i--;
+                }
+            }
+            addCards();
+        }
     }
 
     public void toWork(int position) {

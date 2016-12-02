@@ -1,5 +1,6 @@
 package com.zh.oademo.oademo.mainpage;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
@@ -13,7 +14,6 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.dexafree.materialList.card.Card;
 import com.dexafree.materialList.listeners.RecyclerItemClickListener;
@@ -42,7 +42,6 @@ public class MainPageFragment extends BaseFragment implements NavigationView.OnN
     Toolbar toolbar;
     @InjectView(R.id.nav_view)
     NavigationView navigationView;
-
     List<CardContent> contents;
 
     @Nullable
@@ -70,16 +69,18 @@ public class MainPageFragment extends BaseFragment implements NavigationView.OnN
             news.getAdapter().add(CardGenerator.getInstance().generateCard(getActivity(), content.getCardtype(), content));
         }
 
+        news.scrollToPosition(0);
+
         news.addOnItemTouchListener(new RecyclerItemClickListener.OnItemClickListener() {
 
             @Override
             public void onItemClick(Card card, int position) {
-                Toast.makeText(getActivity(), card.getProvider().getTitle(), Toast.LENGTH_SHORT).show();
+                toNews(position);
             }
 
             @Override
             public void onItemLongClick(Card card, int position) {
-                Toast.makeText(getActivity(), card.getProvider().getDescription(), Toast.LENGTH_LONG).show();
+                toNews(position);
             }
         });
 
@@ -91,11 +92,11 @@ public class MainPageFragment extends BaseFragment implements NavigationView.OnN
                     @Override
                     public void run() {
 
-                        addCard();
+                        addCards();
 
                         refreshComponent.setRefreshing(false);
                     }
-                }, 2000);
+                }, 500);
 
             }
         });
@@ -105,7 +106,16 @@ public class MainPageFragment extends BaseFragment implements NavigationView.OnN
         return view;
     }
 
-    public void addCard() {
+    private void toNews(int position) {
+        Intent intent = new Intent();
+        intent.setClass(getActivity(), NewsActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("workContent", contents.get(position));
+        intent.putExtras(bundle);
+        getActivity().startActivity(intent);
+    }
+
+    public void addCards() {
         CardContent content = new CardContent("Add Card", "Appear after refresh.", "http://img2.imgtn.bdimg.com/it/u=1887006003,1873570913&fm=21&gp=0.jpg", CardGenerator.CARDTYPE.SMALL_IMAGE_CARD);
         news.getAdapter().add(0, CardGenerator.getInstance().generateCard(getActivity(), content.getCardtype(), content));
         news.getAdapter().notifyDataSetChanged();

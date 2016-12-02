@@ -5,10 +5,8 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
-    tools:context="com.zh.oademo.oademo.worktodo.WorkActivity">
+    tools:context=".mainpage.NewsActivity">
 
-    <WebView
-        android:id="@+id/web_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></WebView>
+
 </LinearLayout>
+
