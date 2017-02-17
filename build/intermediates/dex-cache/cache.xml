@@ -12,6 +12,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\exploded-aar\io.reactivex\rxandroid\1.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="aa81bfe8c5cc88c2472ca936ae71f0c3dd1766df">
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\io.reactivex-rxandroid-1.0.1_674e84eacf3f7b4fb89c9febae858220fe87b9b9\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -36,6 +45,15 @@
         revision="24.0.2"
         sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
         <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\picasso-2.5.2_f381f52cfdfe3b676c6f5c9f30d0fc2415ca49f5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\exploded-aar\q.rorbin\badgeview\1.0.5\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="27f363dc0a6f5ec0a55a5930b86997ba33a5d4e6">
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\q.rorbin-badgeview-1.0.5_3842be5ae3ee9734475e4235aa5399bdec60c8ca\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -72,6 +90,24 @@
         revision="24.0.2"
         sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
         <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-24.2.1_c3ba157fb8b97b04fd9859a1668ca23fa9bd809b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\ceeg\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\adapter-rxjava\2.0.0-beta4\bd49baf667542c7d06f71e598bdee7fe57272013\adapter-rxjava-2.0.0-beta4.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="bd49baf667542c7d06f71e598bdee7fe57272013">
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\adapter-rxjava-2.0.0-beta4_492d4424ec717b409d145229798346c0fe1db141\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\ceeg\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\retrofit\2.0.0-beta4\739e00dea1f0ac04fdb9b6160d667e23cc50a791\retrofit-2.0.0-beta4.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="739e00dea1f0ac04fdb9b6160d667e23cc50a791">
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\retrofit-2.0.0-beta4_a25f8480c8a294110f86216e39d9cff7f3b7a151\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -147,6 +183,33 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\ceeg\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\converter-gson\2.0.0-beta4\de5935a367ba5e343e9df786ac8fc0c7d52b5f0c\converter-gson-2.0.0-beta4.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="de5935a367ba5e343e9df786ac8fc0c7d52b5f0c">
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\converter-gson-2.0.0-beta4_065d461d5125d5c08a9eede883a97a7dcf398868\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\ceeg\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.3.1\19047bdb6a4fc00a44124f64ca98e88fc204e7e3\okhttp-3.3.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="19047bdb6a4fc00a44124f64ca98e88fc204e7e3">
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\okhttp-3.3.1_c92a65215424add843ac730a4b7791e516f06036\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\ceeg\.gradle\caches\modules-2\files-2.1\io.reactivex\rxjava\1.1.0\748f0546d5c3c27f1aef07270ffea0c45f0c42a4\rxjava-1.1.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="748f0546d5c3c27f1aef07270ffea0c45f0c42a4">
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\rxjava-1.1.0_da34ba81f204846d1a13b6b412f15a4897933f81\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\libs\internal_impl-24.2.1.jar"
         jumboMode="true"
         optimize="true"
@@ -178,7 +241,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
-        sha1="a573f14423f14b175dccaaf40466cb27d53d9732">
+        sha1="db6d1f3fb6f35ed11ff8b512729ba846c31caf1d">
         <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_cc88a8c89e717c0da3dde08b44c224efca63b017\classes.dex" />
     </item>
     <item
@@ -198,6 +261,24 @@
         revision="24.0.2"
         sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
         <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\library-2.4.0_57d98b44cf9147ca608c1e8eb8d34caaeebf3040\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\ceeg\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.4\695b63d702f505b9b916e02272e3b6381bade7f\gson-2.4.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="0695b63d702f505b9b916e02272e3b6381bade7f">
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\gson-2.4_b72fa7f2e78ad22171a25176d31631df3ea7566f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\ceeg\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.8.0\5ea7af56cc7c567ed9856d99efb30740e9b17ff\okio-1.8.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="05ea7af56cc7c567ed9856d99efb30740e9b17ff">
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\okio-1.8.0_5949d96ca48cfb22d262e368152a1c0042d936f1\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -232,7 +313,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
-        sha1="3682f02160df577c991e91aeabfb5da308f78082">
+        sha1="e18ad6c7413cfa8783c7e184adc602b0afcf6b20">
         <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_2e0d4c2259c91f77a78807b9f69e409ee2bb8f5f\classes.dex" />
     </item>
 

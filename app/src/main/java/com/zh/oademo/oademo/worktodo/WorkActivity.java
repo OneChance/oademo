@@ -11,7 +11,7 @@ import android.webkit.WebViewClient;
 
 import com.zh.oademo.oademo.MyApplication;
 import com.zh.oademo.oademo.R;
-import com.zh.oademo.oademo.common.WorkContent;
+import com.zh.oademo.oademo.entity.WorkContent;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;

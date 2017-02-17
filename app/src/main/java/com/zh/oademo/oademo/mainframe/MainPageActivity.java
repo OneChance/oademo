@@ -3,8 +3,6 @@ package com.zh.oademo.oademo.mainframe;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,7 +13,7 @@ import com.zh.oademo.oademo.MyApplication;
 import com.zh.oademo.oademo.R;
 import com.zh.oademo.oademo.common.BaseFragment;
 import com.zh.oademo.oademo.common.TabItem;
-import com.zh.oademo.oademo.mainpage.MainPageFragment;
+import com.zh.oademo.oademo.work.WorkFragment;
 import com.zh.oademo.oademo.worktodo.WorktodoFragment;
 
 import java.util.ArrayList;
@@ -33,8 +31,7 @@ public class MainPageActivity extends AppCompatActivity
 
     int lastSelectedPosition = 0;
     FragmentManager fm;
-
-    MainPageFragment mainPageFragment;
+    WorkFragment workFragment;
     WorktodoFragment worktodoFragment;
 
     @Override
@@ -43,6 +40,7 @@ public class MainPageActivity extends AppCompatActivity
         setContentView(R.layout.activity_main_frame);
         ButterKnife.inject(this);
         initView();
+
         ((MyApplication) getApplication()).getInstance().addActivity(this);
     }
 
@@ -57,11 +55,11 @@ public class MainPageActivity extends AppCompatActivity
 
         fm = getSupportFragmentManager();
 
-        mainPageFragment = new MainPageFragment();
+        workFragment = new WorkFragment();
         worktodoFragment = new WorktodoFragment();
 
         FragmentTransaction transaction = fm.beginTransaction();
-        transaction.replace(R.id.layFrame, mainPageFragment);
+        transaction.replace(R.id.layFrame, workFragment);
 
         transaction.commit();
 
@@ -69,10 +67,10 @@ public class MainPageActivity extends AppCompatActivity
 
     public List<TabItem> getTabs() {
         List<TabItem> tabs = new ArrayList<>();
-        tabs.add(new TabItem(R.mipmap.ic_home_white_24dp, R.string.tab_item_home, R.color.colorPrimary, 0));
-        tabs.add(new TabItem(R.mipmap.ic_book_white_24dp, R.string.tab_item_worktodo, R.color.colorPrimary, 3));
-        tabs.add(new TabItem(R.mipmap.ic_music_note_white_24dp, R.string.tab_item_flows, R.color.colorPrimary, 0));
-        tabs.add(new TabItem(R.mipmap.ic_tv_white_24dp, R.string.tab_item_contact, R.color.colorPrimary, 0));
+        tabs.add(new TabItem(R.mipmap.tabbar_home, R.string.tab_item_work, R.color.colorPrimary, 0));
+        tabs.add(new TabItem(R.mipmap.tabbar_message, R.string.tab_item_info, R.color.colorPrimary, 0));
+        tabs.add(new TabItem(R.mipmap.tabbar_profile, R.string.tab_item_contact, R.color.colorPrimary, 0));
+        tabs.add(new TabItem(R.mipmap.tabbar_more, R.string.tab_item_more, R.color.colorPrimary, 0));
         return tabs;
     }
 
@@ -86,21 +84,9 @@ public class MainPageActivity extends AppCompatActivity
                 .initialise();
     }
 
-
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
-    }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main_page, menu);
         return true;
     }
 
@@ -109,12 +95,6 @@ public class MainPageActivity extends AppCompatActivity
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -135,7 +115,7 @@ public class MainPageActivity extends AppCompatActivity
     public BaseFragment getCurrentFragment(int position) {
         switch (position) {
             case 0:
-                return mainPageFragment;
+                return workFragment;
             case 1:
                 return worktodoFragment;
         }

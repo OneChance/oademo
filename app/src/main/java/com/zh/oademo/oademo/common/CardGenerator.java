@@ -90,8 +90,15 @@ public class CardGenerator {
     }
 
     public Card createTitleCard(Context context, CardContent content) {
+
+        String tag = "TEXT_CARD";
+
+        if (content.getShowNumber() > 0) {
+            tag = tag + "@" + content.getShowNumber();
+        }
+
         Card card = new Card.Builder(context)
-                .setTag("TEXT_CARD")
+                .setTag(tag)
                 .withProvider(new CardProvider())
                 .setLayout(R.layout.material_title_card_zh)
                 .setTitle(content.getTitle())

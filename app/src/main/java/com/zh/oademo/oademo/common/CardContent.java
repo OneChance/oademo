@@ -7,6 +7,7 @@ public class CardContent implements Serializable {
     String title;
     String description;
     String imgUrl;
+    private int showNumber;
     CardGenerator.CARDTYPE cardtype;
 
     public CardContent(String title, String description, String imgUrl, CardGenerator.CARDTYPE cardtype) {
@@ -46,5 +47,13 @@ public class CardContent implements Serializable {
 
     public void setCardtype(CardGenerator.CARDTYPE cardtype) {
         this.cardtype = cardtype;
+    }
+
+    public int getShowNumber() {
+        return showNumber;
+    }
+
+    public void setShowNumber(int showNumber) {
+        this.showNumber = showNumber;
     }
 }

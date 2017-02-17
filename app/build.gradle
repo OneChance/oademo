@@ -5,7 +5,7 @@ android {
     buildToolsVersion "24.0.2"
     defaultConfig {
         applicationId "com.zh.oademo.oademo"
-        minSdkVersion 15
+        minSdkVersion 16
         targetSdkVersion 24
         versionCode 1
         versionName "1.0"
@@ -27,6 +27,12 @@ dependencies {
     compile 'com.ashokvarma.android:bottom-navigation-bar:1.2.0'
     compile 'com.github.dexafree:materiallist:3.2.1'
     compile 'com.miguelcatalan:materialsearchview:1.4.0'
+    compile 'q.rorbin:badgeview:1.0.5'
+    compile 'com.squareup.okhttp3:okhttp:3.3.1'
+    compile 'io.reactivex:rxandroid:1.0.1'
+    compile 'com.squareup.retrofit2:retrofit:2.0.0-beta4'
+    compile 'com.squareup.retrofit2:converter-gson:2.0.0-beta4'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.0.0-beta4'
 
     testCompile 'junit:junit:4.12'
 }

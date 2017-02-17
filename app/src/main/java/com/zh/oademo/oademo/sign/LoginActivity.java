@@ -5,6 +5,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -20,6 +21,13 @@ import android.widget.TextView;
 import com.zh.oademo.oademo.MyApplication;
 import com.zh.oademo.oademo.R;
 import com.zh.oademo.oademo.mainframe.MainPageActivity;
+import com.zh.oademo.oademo.net.NetObserver;
+import com.zh.oademo.oademo.net.NetUtil;
+import com.zh.oademo.oademo.util.Formatter;
+
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.util.Map;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -27,7 +35,7 @@ import butterknife.InjectView;
 /**
  * A login screen that offers login via email/password.
  */
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements NetObserver.DataReceiver {
 
     // UI references.
     @InjectView(R.id.account)
@@ -40,6 +48,7 @@ public class LoginActivity extends AppCompatActivity {
     View mLoginFormView;
     @InjectView(R.id.email_sign_in_button)
     Button signInButton;
+    String passwordMD5;
 
     Context context;
 
@@ -105,19 +114,19 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         if (cancel) {
-            // There was an error; don't attempt login and focus the first
-            // form field with an error.
             focusView.requestFocus();
         } else {
-            // Show a progress spinner, and kick off a background task to
-            // perform theuser login attempt.
-            showProgress(true);
+            try {
+                MessageDigest md = MessageDigest.getInstance("MD5");
+                md.update(password.getBytes());
+                password = new BigInteger(1, md.digest()).toString(16);
+                passwordMD5 = password;
+                NetUtil.SetObserverCommonAction(NetUtil.getServices().Login(account, password))
+                        .subscribe(new NetObserver(context, this));
+                showProgress(true);
+            } catch (Exception e) {
 
-            Intent intent = new Intent();
-            intent.setClass(context, MainPageActivity.class);
-            Bundle bundle = new Bundle();
-            intent.putExtras(bundle);
-            context.startActivity(intent);
+            }
         }
     }
 
@@ -166,6 +175,26 @@ public class LoginActivity extends AppCompatActivity {
     protected void onResume() {
         showProgress(false);
         super.onResume();
+    }
+
+    @Override
+    public void handle(Object data) {
+        Map loginInfo = ((Map) data);
+        SharedPreferences sharedPreferences = getSharedPreferences("loginInfo", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("userid", Formatter.removePointString(loginInfo.get("userid")));
+        editor.putString("passwordMD5", passwordMD5);
+        editor.apply();
+        Intent intent = new Intent();
+        intent.setClass(context, MainPageActivity.class);
+        Bundle bundle = new Bundle();
+        intent.putExtras(bundle);
+        context.startActivity(intent);
+    }
+
+    @Override
+    public void error() {
+        showProgress(false);
     }
 }
 

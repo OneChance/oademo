@@ -11,22 +11,29 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity
-            android:name=".sign.LoginActivity"
-            android:label=""
+            android:name=".sign.SplashScreen"
+            android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".sign.LoginActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
             android:name=".mainframe.MainPageActivity"
             android:label=""
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
             android:name=".worktodo.WorkActivity"
             android:label=""
@@ -34,9 +41,10 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".mainpage.NewsActivity"
+            android:name=".work.WorkListActivity"
+            android:label=""
             android:parentActivityName=".mainframe.MainPageActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

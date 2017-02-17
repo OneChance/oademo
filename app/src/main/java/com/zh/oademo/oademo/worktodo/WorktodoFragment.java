@@ -16,13 +16,13 @@ import android.view.ViewGroup;
 
 import com.dexafree.materialList.card.Card;
 import com.dexafree.materialList.listeners.RecyclerItemClickListener;
-import com.dexafree.materialList.view.MaterialListView;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import com.zh.oademo.oademo.R;
 import com.zh.oademo.oademo.common.BaseFragment;
 import com.zh.oademo.oademo.common.CardContent;
 import com.zh.oademo.oademo.common.CardGenerator;
-import com.zh.oademo.oademo.common.WorkContent;
+import com.zh.oademo.oademo.entity.WorkContent;
+import com.zh.oademo.oademo.plugins.materiallist.MaterialListView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -134,11 +134,7 @@ public class WorktodoFragment extends BaseFragment {
     }
 
     public void getWorkData() {
-        contents.clear();
-        contents.add(new WorkContent("个人资金[123412]", "", "", CardGenerator.CARDTYPE.TITLE_CARD, "0"));
-        contents.add(new WorkContent("立项申请[742342]", "", "", CardGenerator.CARDTYPE.TITLE_CARD, "1"));
-        contents.add(new WorkContent("出差审批[298764]", "", "", CardGenerator.CARDTYPE.TITLE_CARD, "2"));
-        addCards();
+
     }
 
     public void queryContent(String query) {
