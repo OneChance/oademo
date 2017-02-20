@@ -4,8 +4,11 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
+import com.dexafree.materialList.card.Card;
 import com.zh.oademo.oademo.MyApplication;
 import com.zh.oademo.oademo.R;
 import com.zh.oademo.oademo.common.CardGenerator;
@@ -13,7 +16,7 @@ import com.zh.oademo.oademo.entity.WorkContent;
 import com.zh.oademo.oademo.net.NetObserver;
 import com.zh.oademo.oademo.net.NetUtil;
 import com.zh.oademo.oademo.plugins.materiallist.MaterialListView;
-import com.zh.oademo.oademo.plugins.scroll.MySwipe;
+import com.zh.oademo.oademo.plugins.materiallist.RecyclerItemClickListener;
 import com.zh.oademo.oademo.util.AuthParams;
 import com.zh.oademo.oademo.util.Formatter;
 
@@ -27,12 +30,14 @@ import butterknife.InjectView;
 public class WorkListActivity extends AppCompatActivity implements NetObserver.DataReceiver {
 
     @InjectView(R.id.refresh_component)
-    MySwipe refreshComponent;
+    SwipeRefreshLayout refreshComponent;
     List<WorkContent> contents;
     @InjectView(R.id.workitems)
     MaterialListView workitems;
     int page;
     String type;
+    boolean isLoading;
+    List<WorkContent> contentsAdd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +48,7 @@ public class WorkListActivity extends AppCompatActivity implements NetObserver.D
 
         page = 1;
         contents = new ArrayList<>();
+        contentsAdd = new ArrayList<>();
 
         getWorkList();
 
@@ -50,16 +56,45 @@ public class WorkListActivity extends AppCompatActivity implements NetObserver.D
             @Override
             public void onRefresh() {
                 // 执行刷新操作
-                page = 1;
-                getWorkList();
+                if (!isLoading) {
+                    page = 1;
+                    getWorkList();
+                }
             }
         });
 
-        refreshComponent.setOnLoadListener(new MySwipe.OnLoadListener() {
+        workitems.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
-            public void onLoad() {
-                page++;
-                Log.d("oademo", "1234");
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+                if (newState == RecyclerView.SCROLL_STATE_IDLE && ((LinearLayoutManager) workitems.getLayoutManager()).findLastVisibleItemPosition() + 1 == workitems.getAdapter().getItemCount()) {
+                    if (!isLoading && !refreshComponent.isRefreshing()) {
+                        isLoading = true;
+                        workitems.getAdapter().addFoot();
+                        refreshComponent.setRefreshing(false);
+                        refreshComponent.setEnabled(false);
+                        page++;
+                        getWorkList();
+                    }
+                }
+            }
+
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+            }
+        });
+
+        workitems.addOnItemTouchListener(new RecyclerItemClickListener.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(Card card, int position) {
+                Log.d("oademo", "card title" + contents.get(position).getTitle());
+            }
+
+            @Override
+            public void onItemLongClick(Card card, int position) {
+
             }
         });
 
@@ -78,40 +113,56 @@ public class WorkListActivity extends AppCompatActivity implements NetObserver.D
     public void handle(Object data) {
         Log.d("oademo", "work items:" + data);
 
-        refreshComponent.setRefreshing(false);
-        refreshComponent.setLoading(false);
+        if (data != null) {
 
-        Map workList = (Map) data;
-        ArrayList<Map> workitemList = (ArrayList<Map>) (workList.get("datas"));
+            Map workList = (Map) data;
+            ArrayList<Map> workitemList = (ArrayList<Map>) (workList.get("datas"));
+            int nowPage = Formatter.removePointInt(workList.get("nowPage"));
+            int scrollTo = 0;
 
-        if (workitemList.size() > 0) {
-            if (page == 1) {
-                if (workitemList.size() == contents.size()) {
-                    MyApplication.toast(R.string.no_more_data, true);
-                }
+            if (nowPage == 1) {
                 contents.clear();
+                scrollTo = 0;
                 workitems.getAdapter().clearAll();
+            } else {
+                scrollTo = contents.size();
             }
 
-            for (Map workitem : workitemList) {
-                WorkContent content = new WorkContent(workitem.get("title").toString(), workitem.get("description").toString(), "", CardGenerator.CARDTYPE.TEXT_CARD);
-                content.setUrl(workitem.get("url").toString());
-                contents.add(content);
+            if (workitemList.size() > 0) {
+                for (Map workitem : workitemList) {
+                    WorkContent content = new WorkContent(workitem.get("title").toString(), workitem.get("description").toString(), "", CardGenerator.CARDTYPE.TEXT_CARD);
+                    content.setUrl(workitem.get("url").toString());
+                    contentsAdd.add(content);
+                }
+
+                contents.addAll(contentsAdd);
+
+                for (WorkContent content : contentsAdd) {
+                    workitems.getAdapter().add(CardGenerator.getInstance().generateCard(this, content.getCardtype(), content));
+                }
+
+                page = nowPage;
+
+                contentsAdd.clear();
             }
 
-            for (WorkContent content : contents) {
-                workitems.getAdapter().add(CardGenerator.getInstance().generateCard(this, content.getCardtype(), content));
+            if (workitems.getAdapter().getItemCount() > 0) {
+                workitems.scrollToPosition(scrollTo);
             }
-
-            page = Formatter.removePointInt(workList.get("nowPage"));
-
-        } else {
-            MyApplication.toast(R.string.no_more_data, true);
         }
+
+        getEnd();//清除加载或刷新的状态
     }
 
     @Override
     public void error() {
+        getEnd();
+    }
 
+    public void getEnd() {
+        refreshComponent.setRefreshing(false);
+        refreshComponent.setEnabled(true);
+        workitems.getAdapter().removeFoot();
+        isLoading = false;
     }
 }

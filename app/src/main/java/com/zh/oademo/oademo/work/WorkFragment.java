@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.dexafree.materialList.card.Card;
-import com.dexafree.materialList.listeners.RecyclerItemClickListener;
 import com.zh.oademo.oademo.R;
 import com.zh.oademo.oademo.common.BaseFragment;
 import com.zh.oademo.oademo.common.CardGenerator;
@@ -18,6 +17,7 @@ import com.zh.oademo.oademo.mainframe.MainPageActivity;
 import com.zh.oademo.oademo.net.NetObserver;
 import com.zh.oademo.oademo.net.NetUtil;
 import com.zh.oademo.oademo.plugins.materiallist.MaterialListView;
+import com.zh.oademo.oademo.plugins.materiallist.RecyclerItemClickListener;
 import com.zh.oademo.oademo.util.AuthParams;
 import com.zh.oademo.oademo.util.Formatter;
 

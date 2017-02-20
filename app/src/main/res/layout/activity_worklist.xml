@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.zh.oademo.oademo.plugins.scroll.MySwipe
+    <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/refresh_component"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -14,5 +14,5 @@
             android:id="@+id/workitems"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
-    </com.zh.oademo.oademo.plugins.scroll.MySwipe>
+    </android.support.v4.widget.SwipeRefreshLayout>
 </LinearLayout>

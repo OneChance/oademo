@@ -64,7 +64,7 @@ public class WorktodoFragment extends BaseFragment {
 
         getWorkData();
 
-        worklist.addOnItemTouchListener(new RecyclerItemClickListener.OnItemClickListener() {
+        /*worklist.addOnItemTouchListener(new RecyclerItemClickListener.OnItemClickListener() {
 
             @Override
             public void onItemClick(Card card, int position) {
@@ -75,7 +75,7 @@ public class WorktodoFragment extends BaseFragment {
             public void onItemLongClick(Card card, int position) {
                 toWork(position);
             }
-        });
+        });*/
 
         searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
             @Override

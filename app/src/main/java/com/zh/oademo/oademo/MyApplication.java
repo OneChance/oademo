@@ -4,6 +4,7 @@ package com.zh.oademo.oademo;
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
@@ -56,9 +57,9 @@ public class MyApplication extends Application {
         Toast toast = new Toast(context);
         TextView textView = (TextView) toastView.findViewById(R.id.toast_notice);
         if (success) {
-            textView.setBackgroundColor(context.getResources().getColor(R.color.success));
+            textView.setBackgroundColor(ContextCompat.getColor(context,R.color.success));
         } else {
-            textView.setBackgroundColor(context.getResources().getColor(R.color.error));
+            textView.setBackgroundColor(ContextCompat.getColor(context,R.color.error));
         }
         textView.setText(msg);
         toast.setView(toastView);

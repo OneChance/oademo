@@ -5,10 +5,12 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.dexafree.materialList.card.Card;
 import com.dexafree.materialList.card.CardLayout;
@@ -31,6 +33,8 @@ public class MaterialListAdapter extends RecyclerView.Adapter<MaterialListAdapte
     private final MaterialListView.OnAdapterItemsChanged mItemAnimation;
     private final List<Card> mCardList = new ArrayList<>();
     static QBadgeView badgeView;
+    private static final int TYPE_FOOTER = -9999;
+    private int lastFootPosition = -1;
 
     public MaterialListAdapter(@NonNull final MaterialListView.OnSwipeAnimation swipeAnimation,
                                @NonNull final MaterialListView.OnAdapterItemsChanged itemAnimation, Context context) {
@@ -42,40 +46,75 @@ public class MaterialListAdapter extends RecyclerView.Adapter<MaterialListAdapte
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        private final CardLayout view;
+        private CardLayout view = null;
 
-        public ViewHolder(@NonNull final View v) {
+        public ViewHolder(@NonNull final View v, int viewType) {
             super(v);
-            view = (CardLayout) v;
+            if (viewType != TYPE_FOOTER) {
+                view = (CardLayout) v;
+            }
         }
 
         public void build(Card card) {
-            view.build(card);
-            if (card.getTag() != null) {
-                String tag = card.getTag().toString();
-                if (!tag.equals("") && tag.contains("@")) {
-                    Badge badge = badgeView.bindTarget(view.findViewById(R.id.root));
-                    badge.setBadgeGravity(Gravity.CENTER | Gravity.END);
-                    badge.setBadgeNumber(Integer.parseInt(tag.split("@")[1]));
-                    badge.setBadgeNumberSize(15, true);
-                    badge.setBadgePadding(10,true);
-                    badge.setGravityOffset(20,true);
-                    badge.setShowShadow(true);
+            if (view != null) {
+                view.build(card);
+                if (card.getTag() != null) {
+                    String tag = card.getTag().toString();
+                    if (!tag.equals("") && tag.contains("@")) {
+                        Badge badge = badgeView.bindTarget(view.findViewById(R.id.root));
+                        badge.setBadgeGravity(Gravity.CENTER | Gravity.END);
+                        badge.setBadgeNumber(Integer.parseInt(tag.split("@")[1]));
+                        badge.setBadgeNumberSize(15, true);
+                        badge.setBadgePadding(10, true);
+                        badge.setGravityOffset(20, true);
+                        badge.setShowShadow(true);
+                    }
                 }
             }
         }
     }
 
+    static class FootViewHolder extends ViewHolder {
+        public FootViewHolder(View view) {
+            super(view, TYPE_FOOTER);
+        }
+    }
+
+    public void addFoot() {
+        removeFoot();
+        add(null);
+        lastFootPosition = mCardList.size() - 1;
+    }
+
+    public void removeFoot() {
+        if (lastFootPosition > -1) {
+            if (lastFootPosition < mCardList.size()) {
+                mCardList.remove(lastFootPosition);
+                notifyDataSetChanged();
+            }
+            lastFootPosition = -1;
+        }
+    }
+
     @Override
     public ViewHolder onCreateViewHolder(final ViewGroup parent, final int viewType) {
+
+        if (viewType == TYPE_FOOTER) {
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.listview_footer, parent,
+                    false);
+            return new FootViewHolder(view);
+        }
+
         return new MaterialListAdapter.ViewHolder(LayoutInflater
                 .from(parent.getContext())
-                .inflate(viewType, parent, false));
+                .inflate(viewType, parent, false), viewType);
     }
 
     @Override
     public void onBindViewHolder(final MaterialListAdapter.ViewHolder holder, final int position) {
-        holder.build(getCard(position));
+        if (!(holder instanceof FootViewHolder)) {
+            holder.build(getCard(position));
+        }
     }
 
     @Override
@@ -85,6 +124,9 @@ public class MaterialListAdapter extends RecyclerView.Adapter<MaterialListAdapte
 
     @Override
     public int getItemViewType(final int position) {
+        if (mCardList.get(position) == null) {
+            return TYPE_FOOTER;
+        }
         return mCardList.get(position).getProvider().getLayout();
     }
 
@@ -95,9 +137,11 @@ public class MaterialListAdapter extends RecyclerView.Adapter<MaterialListAdapte
      * @param card     to insert.
      * @param scroll   will trigger an animation if it is set to <code>true</code> otherwise not.
      */
-    public void add(final int position, @NonNull final Card card, final boolean scroll) {
+    public void add(final int position, final Card card, final boolean scroll) {
         mCardList.add(position, card);
-        card.getProvider().addObserver(this);
+        if (card != null) {
+            card.getProvider().addObserver(this);
+        }
         mItemAnimation.onAddItem(position, scroll);
         notifyItemInserted(position); // Triggers the animation!
     }
@@ -157,10 +201,12 @@ public class MaterialListAdapter extends RecyclerView.Adapter<MaterialListAdapte
      * @param card    to remove.
      * @param animate {@code true} to animate the remove process or {@code false} otherwise.
      */
-    public void remove(@NonNull final Card card, boolean animate) {
-        if (card.isDismissible()) {
-            card.getProvider().deleteObserver(this);
-            if (animate) {
+    public void remove(final Card card, boolean animate) {
+        if (card == null || card.isDismissible()) {
+            if (card != null) {
+                card.getProvider().deleteObserver(this);
+            }
+            if (animate && card != null) {
                 mSwipeAnimation.animate(getPosition(card));
             } else {
                 mCardList.remove(card);
@@ -176,7 +222,9 @@ public class MaterialListAdapter extends RecyclerView.Adapter<MaterialListAdapte
     public void clearAll() {
         while (!mCardList.isEmpty()) {
             final Card card = mCardList.get(0);
-            card.setDismissible(true);
+            if (card != null) {
+                card.setDismissible(true);
+            }
             remove(card, false);
             notifyItemRemoved(0);
         }
@@ -188,7 +236,7 @@ public class MaterialListAdapter extends RecyclerView.Adapter<MaterialListAdapte
     public void clear() {
         for (int index = 0; index < mCardList.size(); ) {
             final Card card = mCardList.get(index);
-            if (!card.isDismissible()) {
+            if (card == null || !card.isDismissible()) {
                 index++;
             }
             remove(card, false);
