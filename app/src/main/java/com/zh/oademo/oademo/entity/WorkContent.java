@@ -4,7 +4,9 @@ package com.zh.oademo.oademo.entity;
 import com.zh.oademo.oademo.common.CardContent;
 import com.zh.oademo.oademo.common.CardGenerator;
 
-public class WorkContent extends CardContent {
+import java.io.Serializable;
+
+public class WorkContent extends CardContent implements Serializable {
 
     private String workType;
     private String workitemId;

@@ -1,4 +1,4 @@
-package com.zh.oademo.oademo.work;
+package com.zh.oademo.oademo.info;
 
 import android.content.Context;
 import android.content.Intent;
@@ -15,7 +15,7 @@ import android.widget.ProgressBar;
 import com.dexafree.materialList.card.Card;
 import com.zh.oademo.oademo.R;
 import com.zh.oademo.oademo.common.CardGenerator;
-import com.zh.oademo.oademo.entity.WorkContent;
+import com.zh.oademo.oademo.entity.InfoContent;
 import com.zh.oademo.oademo.net.NetObserver;
 import com.zh.oademo.oademo.net.NetUtil;
 import com.zh.oademo.oademo.plugins.materiallist.MaterialListView;
@@ -30,20 +30,21 @@ import java.util.Map;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
-public class WorkListActivity extends AppCompatActivity implements NetObserver.DataReceiver {
+import static com.zh.oademo.oademo.R.id.workitems;
+
+public class InfoListActivity extends AppCompatActivity implements NetObserver.DataReceiver {
 
     @InjectView(R.id.refresh_component)
     SwipeRefreshLayout refreshComponent;
-    List<WorkContent> contents;
-    @InjectView(R.id.workitems)
-    MaterialListView workitems;
+    List<InfoContent> contents;
+    @InjectView(workitems)
+    MaterialListView infos;
     @InjectView(R.id.loading_progress)
     ProgressBar loading_progress;
-
     int page;
     String type;
     boolean isLoading;
-    List<WorkContent> contentsAdd;
+    List<InfoContent> contentsAdd;
     Context context;
 
     @Override
@@ -51,14 +52,14 @@ public class WorkListActivity extends AppCompatActivity implements NetObserver.D
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_type_list);
         ButterKnife.inject(this);
-        type = getIntent().getExtras().getString("worktype");
+        type = getIntent().getExtras().getString("infoType");
 
         page = 1;
         contents = new ArrayList<>();
         contentsAdd = new ArrayList<>();
         context = this;
 
-        getWorkList();
+        getInfoList();
 
         refreshComponent.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -66,23 +67,23 @@ public class WorkListActivity extends AppCompatActivity implements NetObserver.D
                 // 执行刷新操作
                 if (!isLoading && loading_progress.getVisibility() == View.GONE) {
                     page = 1;
-                    getWorkList();
+                    getInfoList();
                 }
             }
         });
 
-        workitems.addOnScrollListener(new RecyclerView.OnScrollListener() {
+        infos.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
-                if (newState == RecyclerView.SCROLL_STATE_IDLE && ((LinearLayoutManager) workitems.getLayoutManager()).findLastVisibleItemPosition() + 1 == workitems.getAdapter().getItemCount()) {
+                if (newState == RecyclerView.SCROLL_STATE_IDLE && ((LinearLayoutManager) infos.getLayoutManager()).findLastVisibleItemPosition() + 1 == infos.getAdapter().getItemCount()) {
                     if (!isLoading && !refreshComponent.isRefreshing() && loading_progress.getVisibility() == View.GONE) {
                         isLoading = true;
-                        workitems.getAdapter().addFoot();
+                        infos.getAdapter().addFoot();
                         refreshComponent.setRefreshing(false);
                         refreshComponent.setEnabled(false);
                         page++;
-                        getWorkList();
+                        getInfoList();
                     }
                 }
             }
@@ -93,14 +94,14 @@ public class WorkListActivity extends AppCompatActivity implements NetObserver.D
             }
         });
 
-        workitems.addOnItemTouchListener(new RecyclerItemClickListener.OnItemClickListener() {
+        infos.addOnItemTouchListener(new RecyclerItemClickListener.OnItemClickListener() {
 
             @Override
             public void onItemClick(@NonNull Card card, int position) {
                 Log.d("oademo", "card title" + contents.get(position).getTitle());
                 Intent intent = new Intent();
-                intent.setClass(context, WorkitemActivity.class);
-                intent.putExtra("workitem", contents.get(position));
+                intent.setClass(context, InfoItemActivity.class);
+                intent.putExtra("infoItem", contents.get(position));
                 context.startActivity(intent);
             }
 
@@ -113,45 +114,43 @@ public class WorkListActivity extends AppCompatActivity implements NetObserver.D
         refreshComponent.setColorSchemeResources(android.R.color.holo_blue_light, android.R.color.holo_red_light, android.R.color.holo_orange_light, android.R.color.holo_green_light);
     }
 
-    public void getWorkList() {
-        //Log.d("oademo", "get page:" + page);
+    public void getInfoList() {
         Map<String, String> authParams = AuthParams.getPaams(getSharedPreferences("loginInfo", Context.MODE_PRIVATE));
-        NetUtil.SetObserverCommonAction(NetUtil.getServices().getWorkList(page + "", type, authParams.get("m_timestamp"), authParams.get("userid"), authParams.get("m_auth_t")))
+        NetUtil.SetObserverCommonAction(NetUtil.getServices().getInfoList(page + "", type, authParams.get("m_timestamp"), authParams.get("userid"), authParams.get("m_auth_t")))
                 .subscribe(new NetObserver(this, this));
     }
 
     @Override
     @SuppressWarnings("unchecked")
     public void handle(Object data) {
-        Log.d("oademo", "work items:" + data);
-
+        //Log.d("oademo", "work items:" + data);
         if (data != null) {
 
-            Map workList = (Map) data;
-            ArrayList<Map> workitemList = (ArrayList<Map>) (workList.get("datas"));
-            int nowPage = Formatter.removePointInt(workList.get("nowPage"));
+            Map infoList = (Map) data;
+            ArrayList<Map> infoItemList = (ArrayList<Map>) (infoList.get("datas"));
+            int nowPage = Formatter.removePointInt(infoList.get("nowPage"));
             int scrollTo = 0;
 
             if (nowPage == 1) {
                 contents.clear();
                 scrollTo = 0;
-                workitems.getAdapter().clearAll();
+                infos.getAdapter().clearAll();
             } else {
                 scrollTo = contents.size();
             }
 
-            if (workitemList.size() > 0) {
-                for (Map workitem : workitemList) {
-                    WorkContent content = new WorkContent(workitem.get("title").toString(), workitem.get("description").toString(), "", CardGenerator.CARDTYPE.TEXT_CARD);
-                    content.setUrl(workitem.get("url").toString());
-                    content.setWorkType(type);
+            if (infoItemList.size() > 0) {
+                for (Map infoItem : infoItemList) {
+                    InfoContent content = new InfoContent(infoItem.get("title").toString(), infoItem.get("description").toString(), "", CardGenerator.CARDTYPE.TEXT_CARD);
+                    content.setUrl(infoItem.get("url").toString());
+                    content.setInfoType(type);
                     contentsAdd.add(content);
                 }
 
                 contents.addAll(contentsAdd);
 
-                for (WorkContent content : contentsAdd) {
-                    workitems.getAdapter().add(CardGenerator.getInstance().generateCard(this, content.getCardtype(), content));
+                for (InfoContent content : contentsAdd) {
+                    infos.getAdapter().add(CardGenerator.getInstance().generateCard(this, content.getCardtype(), content));
                 }
 
                 page = nowPage;
@@ -159,8 +158,8 @@ public class WorkListActivity extends AppCompatActivity implements NetObserver.D
                 contentsAdd.clear();
             }
 
-            if (workitems.getAdapter().getItemCount() > 0) {
-                workitems.scrollToPosition(scrollTo);
+            if (infos.getAdapter().getItemCount() > 0) {
+                infos.scrollToPosition(scrollTo);
             }
         }
 
@@ -175,7 +174,7 @@ public class WorkListActivity extends AppCompatActivity implements NetObserver.D
     public void getEnd() {
         refreshComponent.setRefreshing(false);
         refreshComponent.setEnabled(true);
-        workitems.getAdapter().removeFoot();
+        infos.getAdapter().removeFoot();
         isLoading = false;
         loading_progress.setVisibility(View.GONE);
     }

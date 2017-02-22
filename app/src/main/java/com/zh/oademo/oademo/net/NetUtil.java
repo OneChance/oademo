@@ -1,11 +1,14 @@
 package com.zh.oademo.oademo.net;
 
 
+import android.util.Log;
+
 import com.zh.oademo.oademo.MyApplication;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
+import okhttp3.FormBody;
 import okhttp3.HttpUrl;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
@@ -44,6 +47,20 @@ public class NetUtil {
                                     .method(oldRequest.method(), oldRequest.body())
                                     .url(authorizedUrlBuilder.build())
                                     .build();
+
+                            Log.d("oademo", "net url:" + newRequest.url());
+
+                            if ("POST".equals(newRequest.method())) {
+                                StringBuilder sb = new StringBuilder();
+                                if (newRequest.body() instanceof FormBody) {
+                                    FormBody body = (FormBody) newRequest.body();
+                                    for (int i = 0; i < body.size(); i++) {
+                                        sb.append(body.encodedName(i) + "=" + body.encodedValue(i) + ",");
+                                    }
+                                    sb.delete(sb.length() - 1, sb.length());
+                                    Log.d("oademo", "| RequestParams:{" + sb.toString() + "}");
+                                }
+                            }
 
                             return chain.proceed(newRequest);
                         }

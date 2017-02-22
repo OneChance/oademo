@@ -3,318 +3,318 @@
 
     <item
         is-multidex="true"
-        jar="D:\Work\android\demo\oademo\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
-        <dex dex="D:\Work\android\demo\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-24.2.1_1f81a085e2f0dbd8e841d9f83f24abfbf8b05f61\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\Work\android\demo\oademo\app\build\intermediates\exploded-aar\com.android.support\design\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
-        <dex dex="D:\Work\android\demo\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-24.2.1_a27d5a7672f05ebb3d38ead4abc11f697d434e07\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\user\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.3.1\19047bdb6a4fc00a44124f64ca98e88fc204e7e3\okhttp-3.3.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="19047bdb6a4fc00a44124f64ca98e88fc204e7e3">
-        <dex dex="D:\Work\android\demo\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\okhttp-3.3.1_1868b822e20926d7259eb68c1d5aa3b508f8a299\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\Work\GameWorksForAndroid\android-sdk-windows\extras\android\m2repository\com\android\support\support-annotations\24.2.1\support-annotations-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
-        <dex dex="D:\Work\android\demo\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-24.2.1_a34b3095c21e259955afd9fbad9605b07bbe6454\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\Work\android\demo\oademo\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
-        <dex dex="D:\Work\android\demo\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-24.2.1_7677d46a6236f4ce8b12f56ebdb237ae5f57213e\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\Work\android\demo\oademo\app\build\intermediates\exploded-aar\com.ashokvarma.android\bottom-navigation-bar\1.2.0\jars\classes.jar"
+        jar="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\exploded-aar\com.ashokvarma.android\bottom-navigation-bar\1.2.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
         sha1="f72894374bf136ef52ef3098dd9039ae32e6fec4">
-        <dex dex="D:\Work\android\demo\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.ashokvarma.android-bottom-navigation-bar-1.2.0_705b0cf8ce56ccf98a7fc7ee9b3ec0f39ac87ec4\classes.dex" />
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.ashokvarma.android-bottom-navigation-bar-1.2.0_dab1e85df57df5433d2253f063b6cffce1cd53dc\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="D:\Work\android\demo\oademo\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
-        <dex dex="D:\Work\android\demo\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-24.2.1_919560110ffb8fb5bba419b11ee29b9a9965f093\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\user\.gradle\caches\modules-2\files-2.1\com.nineoldandroids\library\2.4.0\e9b63380f3a242dbdbf103a2355ad7e43bad17cb\library-2.4.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
-        <dex dex="D:\Work\android\demo\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\library-2.4.0_7dcc3ac4a30f386c51d9582e4504072021db0ad0\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\user\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.8.0\5ea7af56cc7c567ed9856d99efb30740e9b17ff\okio-1.8.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="05ea7af56cc7c567ed9856d99efb30740e9b17ff">
-        <dex dex="D:\Work\android\demo\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\okio-1.8.0_a37a80f4648c480c2fd8febcd3a4bbad77a695da\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\Work\android\demo\oademo\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="91528c6ba3048b521825390551c68a4336d91efc">
-        <dex dex="D:\Work\android\demo\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_45e914f76de727c47e68e203f256a0c404001463\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\user\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\converter-gson\2.0.0-beta4\de5935a367ba5e343e9df786ac8fc0c7d52b5f0c\converter-gson-2.0.0-beta4.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="de5935a367ba5e343e9df786ac8fc0c7d52b5f0c">
-        <dex dex="D:\Work\android\demo\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\converter-gson-2.0.0-beta4_cbf267efd1b066fff91063d3910cb60afcb96696\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\Work\android\demo\oademo\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
-        <dex dex="D:\Work\android\demo\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-24.2.1_8c8beb51bf5176c00c9de639406b0d3d4fbe5a71\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\Work\android\demo\oademo\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
-        <dex dex="D:\Work\android\demo\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_6438459fe271ffc87a9ca4980dc32978f8f7ce7f\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\Work\android\demo\oademo\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="cb86970df0f0f25f766d320b279c7858c1ca0003">
-        <dex dex="D:\Work\android\demo\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-cardview-v7-23.2.1_0b15bbf59c6b88bd34b0b345c3f98daf3774326e\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\Work\android\demo\oademo\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
-        <dex dex="D:\Work\android\demo\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-24.2.1_c2909400a7f8fcf1ff931d47a6e95b96cc463db4\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\Work\android\demo\oademo\app\build\intermediates\exploded-aar\com.miguelcatalan\materialsearchview\1.4.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="918e3e9514d90e54421b674cf0c95044f4e155ad">
-        <dex dex="D:\Work\android\demo\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.miguelcatalan-materialsearchview-1.4.0_70779f2521d66da31681764f2d2aae7b2230c043\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\Work\android\demo\oademo\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="867dad63c33388ff8c7644b236579355036d075f">
-        <dex dex="D:\Work\android\demo\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_1a29434fb7b88f9c32a4e7bdeedbfb68c666d0d8\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\user\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.5.2\7446d06ec8d4f7ffcc53f1da37c95f200dcb9387\picasso-2.5.2.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
-        <dex dex="D:\Work\android\demo\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\picasso-2.5.2_a69735fb31405abb6c5b972e1b2bb4f918f620e8\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\Work\android\demo\oademo\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
-        <dex dex="D:\Work\android\demo\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_76c26eab54a168aab08082dea6b7068122e2056e\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\user\.gradle\caches\modules-2\files-2.1\io.reactivex\rxjava\1.1.0\748f0546d5c3c27f1aef07270ffea0c45f0c42a4\rxjava-1.1.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="748f0546d5c3c27f1aef07270ffea0c45f0c42a4">
-        <dex dex="D:\Work\android\demo\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\rxjava-1.1.0_c2c49b32a15f03394d48dac9f63a79c5da3ca874\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\Work\android\demo\oademo\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
-        <dex dex="D:\Work\android\demo\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-24.2.1_c2bcc9f11dc7b7a167a2d9e93304732a5341eec9\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\Work\android\demo\oademo\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="debfc2da89dab6d61dbd77ee231a5092be925275">
-        <dex dex="D:\Work\android\demo\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_7fd80d0ee19fb6ad3436ba371a094b33a1b2716c\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\user\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\retrofit\2.0.0-beta4\739e00dea1f0ac04fdb9b6160d667e23cc50a791\retrofit-2.0.0-beta4.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="739e00dea1f0ac04fdb9b6160d667e23cc50a791">
-        <dex dex="D:\Work\android\demo\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\retrofit-2.0.0-beta4_9e6840cab10820ad7e1ced2921eb574493fc7001\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\Work\android\demo\oademo\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
-        <dex dex="D:\Work\android\demo\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-24.2.1_b603dc8219d44ba38f1fd3a5059cea5ac4891552\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\user\.gradle\caches\modules-2\files-2.1\com.jakewharton\butterknife\6.1.0\63735f48b82bcd24cdd33821342428252eb1ca5a\butterknife-6.1.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="63735f48b82bcd24cdd33821342428252eb1ca5a">
-        <dex dex="D:\Work\android\demo\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\butterknife-6.1.0_e3fda2dc34a603f25e5a3c1e0dfc079c7ddf9c26\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\Work\android\demo\oademo\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
-        <dex dex="D:\Work\android\demo\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_83b51bcd2b5a92d5f445a08c27a78fed58fef023\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\Work\android\demo\oademo\app\build\intermediates\exploded-aar\q.rorbin\badgeview\1.0.5\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="27f363dc0a6f5ec0a55a5930b86997ba33a5d4e6">
-        <dex dex="D:\Work\android\demo\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\q.rorbin-badgeview-1.0.5_12775c84f6e21d6eaca9e73de29dca04254fed9b\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\Work\android\demo\oademo\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
-        <dex dex="D:\Work\android\demo\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_6461247ce3b670963bcf2fe6e6ecbe1477ea71ce\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\Work\android\demo\oademo\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="D:\Work\android\demo\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-24.2.1_c471a8afcb3fbe96802caad9a3b4309f6297f38b\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\Work\android\demo\oademo\app\build\intermediates\exploded-aar\io.reactivex\rxandroid\1.0.1\jars\classes.jar"
+        jar="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\exploded-aar\io.reactivex\rxandroid\1.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
         sha1="aa81bfe8c5cc88c2472ca936ae71f0c3dd1766df">
-        <dex dex="D:\Work\android\demo\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\io.reactivex-rxandroid-1.0.1_fc41060f31faaec5341037b22d61efa810f442b1\classes.dex" />
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\io.reactivex-rxandroid-1.0.1_674e84eacf3f7b4fb89c9febae858220fe87b9b9\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="D:\Work\android\demo\oademo\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\classes.jar"
+        jar="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
-        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
-        <dex dex="D:\Work\android\demo\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-24.2.1_d16fe6e950209efcc1196026ff707411ee45ecca\classes.dex" />
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-24.2.1_6411fb7c068f9761dd6727e201754836e6943bf8\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="D:\Work\android\demo\oademo\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\jars\classes.jar"
+        jar="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
-        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
-        <dex dex="D:\Work\android\demo\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-24.2.1_613f9fc0ad75258b03d1b0e1b95fdb9f918a0979\classes.dex" />
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-24.2.1_4139d072fdfe280ab1940a49632d68aa8fb4e170\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\user\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\adapter-rxjava\2.0.0-beta4\bd49baf667542c7d06f71e598bdee7fe57272013\adapter-rxjava-2.0.0-beta4.jar"
+        jar="C:\Users\ceeg\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.5.2\7446d06ec8d4f7ffcc53f1da37c95f200dcb9387\picasso-2.5.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\picasso-2.5.2_f381f52cfdfe3b676c6f5c9f30d0fc2415ca49f5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\exploded-aar\q.rorbin\badgeview\1.0.5\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="27f363dc0a6f5ec0a55a5930b86997ba33a5d4e6">
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\q.rorbin-badgeview-1.0.5_3842be5ae3ee9734475e4235aa5399bdec60c8ca\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_ec4477c32f63d9133c80f9fed105bcd9b2ae9462\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\exploded-aar\com.miguelcatalan\materialsearchview\1.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="918e3e9514d90e54421b674cf0c95044f4e155ad">
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.miguelcatalan-materialsearchview-1.4.0_3de80d9d4ce3be9b6a2464efe479c0ce2ad62599\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-24.2.1_b9c236886da09e4d1be24f8932fbe2a63acfe8ad\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-24.2.1_c3ba157fb8b97b04fd9859a1668ca23fa9bd809b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\ceeg\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\adapter-rxjava\2.0.0-beta4\bd49baf667542c7d06f71e598bdee7fe57272013\adapter-rxjava-2.0.0-beta4.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
         sha1="bd49baf667542c7d06f71e598bdee7fe57272013">
-        <dex dex="D:\Work\android\demo\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\adapter-rxjava-2.0.0-beta4_97260f1b9f5f370a279cea38fd9e00daf7db3fee\classes.dex" />
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\adapter-rxjava-2.0.0-beta4_492d4424ec717b409d145229798346c0fe1db141\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\user\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.4\695b63d702f505b9b916e02272e3b6381bade7f\gson-2.4.jar"
+        jar="C:\Users\ceeg\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\retrofit\2.0.0-beta4\739e00dea1f0ac04fdb9b6160d667e23cc50a791\retrofit-2.0.0-beta4.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="739e00dea1f0ac04fdb9b6160d667e23cc50a791">
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\retrofit-2.0.0-beta4_a25f8480c8a294110f86216e39d9cff7f3b7a151\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-24.2.1_93aabd5b541a3bb04bc84fc9fd8b2f1b06d5e1f0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_af92b5b2eb85c3ca821c998f3139e6a743f76b4d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-24.2.1_16cc0768fc3b227b2b48bf75e2ac03c92c2c5fbf\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_c2d3e9b618486f024c724723a19ef7ee9ccb2752\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\ceeg\.gradle\caches\modules-2\files-2.1\com.jakewharton\butterknife\6.1.0\63735f48b82bcd24cdd33821342428252eb1ca5a\butterknife-6.1.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="63735f48b82bcd24cdd33821342428252eb1ca5a">
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\butterknife-6.1.0_fcf9760728ddf197b19bfe339157681870f03f78\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-24.2.1_15b1e05ea79110b4b51b2d8b828b0caa8095edb5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="cb86970df0f0f25f766d320b279c7858c1ca0003">
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-cardview-v7-23.2.1_ca43ece38081aafebb82b61701fd35e8a2b3b96a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-24.2.1_f76260be9ee7d7d67be90563dd2eea3e25b1bf6c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\ceeg\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\converter-gson\2.0.0-beta4\de5935a367ba5e343e9df786ac8fc0c7d52b5f0c\converter-gson-2.0.0-beta4.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="de5935a367ba5e343e9df786ac8fc0c7d52b5f0c">
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\converter-gson-2.0.0-beta4_065d461d5125d5c08a9eede883a97a7dcf398868\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\ceeg\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.3.1\19047bdb6a4fc00a44124f64ca98e88fc204e7e3\okhttp-3.3.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="19047bdb6a4fc00a44124f64ca98e88fc204e7e3">
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\okhttp-3.3.1_c92a65215424add843ac730a4b7791e516f06036\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\ceeg\.gradle\caches\modules-2\files-2.1\io.reactivex\rxjava\1.1.0\748f0546d5c3c27f1aef07270ffea0c45f0c42a4\rxjava-1.1.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="748f0546d5c3c27f1aef07270ffea0c45f0c42a4">
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\rxjava-1.1.0_da34ba81f204846d1a13b6b412f15a4897933f81\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_ac316bcf7b0138cad38985fcb1a8a13e587f95e8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-24.2.1_0dff9f6dee31776599b7ad2c1ab693368c4099e1\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\OLDCOMPUTER\OTHER\android-sdk\extras\android\m2repository\com\android\support\support-annotations\24.2.1\support-annotations-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-24.2.1_f65b9d070d37ad5fbd8fc3104d514c2531ff0819\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="309df66e862e28983fd4403d7dc381cefe9f80d3">
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_cc88a8c89e717c0da3dde08b44c224efca63b017\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\exploded-aar\com.android.support\design\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-24.2.1_8bc8586b80e6c9a72ee02a144d8b452c00b72126\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\ceeg\.gradle\caches\modules-2\files-2.1\com.nineoldandroids\library\2.4.0\e9b63380f3a242dbdbf103a2355ad7e43bad17cb\library-2.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\library-2.4.0_57d98b44cf9147ca608c1e8eb8d34caaeebf3040\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\ceeg\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.4\695b63d702f505b9b916e02272e3b6381bade7f\gson-2.4.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
         sha1="0695b63d702f505b9b916e02272e3b6381bade7f">
-        <dex dex="D:\Work\android\demo\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\gson-2.4_1dcb4b3cde0aaf377969481c47050a2b79f7d7a1\classes.dex" />
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\gson-2.4_b72fa7f2e78ad22171a25176d31631df3ea7566f\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="D:\Work\android\demo\oademo\app\build\intermediates\exploded-aar\com.github.dexafree\materiallist\3.2.1\jars\classes.jar"
+        jar="C:\Users\ceeg\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.8.0\5ea7af56cc7c567ed9856d99efb30740e9b17ff\okio-1.8.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="05ea7af56cc7c567ed9856d99efb30740e9b17ff">
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\okio-1.8.0_5949d96ca48cfb22d262e368152a1c0042d936f1\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_3a6e390eb27f6c8cfd02858aefefa6f86a17dfe5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\exploded-aar\com.github.dexafree\materiallist\3.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
         sha1="937a257e174363e59e2459569b95a65d32a60d4f">
-        <dex dex="D:\Work\android\demo\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.github.dexafree-materiallist-3.2.1_7abb6263613d1c51410bb9bb68adedc849a8aef0\classes.dex" />
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.github.dexafree-materiallist-3.2.1_ad6cd579b58d5a855305249eb5a72c6d43ea37b8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-24.2.1_4ee3368ce2689b7e4394b7f678682223f29aeb29\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="3428331e4ff1a55b6ce3f20fa2099596ac46440e">
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_2e0d4c2259c91f77a78807b9f69e409ee2bb8f5f\classes.dex" />
     </item>
 
 </items>

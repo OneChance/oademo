@@ -31,19 +31,34 @@
         <activity
             android:name=".mainframe.MainPageActivity"
             android:label=""
+            android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name=".worktodo.WorkActivity"
+            android:name=".work.WorkitemActivity"
             android:label=""
-            android:parentActivityName=".mainframe.MainPageActivity"
+            android:parentActivityName=".work.WorkListActivity"
             android:screenOrientation="portrait" />
 
         <activity
             android:name=".work.WorkListActivity"
             android:label=""
+            android:launchMode="singleTop"
             android:parentActivityName=".mainframe.MainPageActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".info.InfoListActivity"
+            android:label=""
+            android:launchMode="singleTop"
+            android:parentActivityName=".mainframe.MainPageActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".info.InfoItemActivity"
+            android:label=""
+            android:parentActivityName=".info.InfoListActivity"
             android:screenOrientation="portrait" />
     </application>
 

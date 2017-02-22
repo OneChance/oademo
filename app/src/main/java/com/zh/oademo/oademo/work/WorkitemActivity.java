@@ -1,25 +1,36 @@
-package com.zh.oademo.oademo.worktodo;
+package com.zh.oademo.oademo.work;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ProgressBar;
 
 import com.zh.oademo.oademo.MyApplication;
 import com.zh.oademo.oademo.R;
 import com.zh.oademo.oademo.entity.WorkContent;
+import com.zh.oademo.oademo.net.NetConfig;
+import com.zh.oademo.oademo.util.AuthParams;
+
+import java.util.Map;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
-public class WorkActivity extends AppCompatActivity {
+public class WorkitemActivity extends AppCompatActivity {
 
     @InjectView(R.id.web_view)
     WebView mWebView;
+
+    @InjectView(R.id.loading_progress)
+    ProgressBar loading_progress;
+
     WorkContent workContent;
     Activity activity;
 
@@ -27,15 +38,20 @@ public class WorkActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_work);
+        setContentView(R.layout.activity_type_one);
         activity = this;
 
         ButterKnife.inject(this);
 
-        Bundle bundle = this.getIntent().getExtras();
-        workContent = (WorkContent) bundle.getSerializable("workContent");
+        workContent = (WorkContent) this.getIntent().getSerializableExtra("workitem");
 
-        final String workUrl = "http://10.4.200.62:9000/yinjia/flow/project/toApprove/joinsign/?processinsid=527&processInsId=527&workitemid=2119&workitemId=2119&loadfrom=index";
+        String workUrl = workContent.getUrl();
+
+        Map<String, String> authParams = AuthParams.getPaams(getSharedPreferences("loginInfo", Context.MODE_PRIVATE));
+
+        workUrl = "http://" + NetConfig.IP + workUrl + "&m_timestamp=" + authParams.get("m_timestamp") +
+                "&m_auth_u=" + authParams.get("userid") +
+                "&m_auth_t=" + authParams.get("m_auth_t");
 
         mWebView.loadUrl(workUrl);
 
@@ -55,12 +71,16 @@ public class WorkActivity extends AppCompatActivity {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 Log.d("oademo", "url:" + url);
-                view.loadUrl(url);
-                return true;
+                //view.loadUrl(url);
+                return false;
+            }
+
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                loading_progress.setVisibility(View.GONE);
             }
         });
 
         ((MyApplication) getApplication()).getInstance().addActivity(this);
     }
-
 }

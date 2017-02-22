@@ -13,8 +13,10 @@ import com.zh.oademo.oademo.MyApplication;
 import com.zh.oademo.oademo.R;
 import com.zh.oademo.oademo.common.BaseFragment;
 import com.zh.oademo.oademo.common.TabItem;
+import com.zh.oademo.oademo.contact.ContactFragment;
+import com.zh.oademo.oademo.info.InfoFragment;
+import com.zh.oademo.oademo.more.MoreFragment;
 import com.zh.oademo.oademo.work.WorkFragment;
-import com.zh.oademo.oademo.worktodo.WorktodoFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +34,9 @@ public class MainPageActivity extends AppCompatActivity
     int lastSelectedPosition = 0;
     FragmentManager fm;
     WorkFragment workFragment;
-    WorktodoFragment worktodoFragment;
+    InfoFragment infoFragment;
+    ContactFragment contactFragment;
+    MoreFragment moreFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +60,9 @@ public class MainPageActivity extends AppCompatActivity
         fm = getSupportFragmentManager();
 
         workFragment = new WorkFragment();
-        worktodoFragment = new WorktodoFragment();
+        infoFragment = new InfoFragment();
+        contactFragment = new ContactFragment();
+        moreFragment = new MoreFragment();
 
         FragmentTransaction transaction = fm.beginTransaction();
         transaction.replace(R.id.layFrame, workFragment);
@@ -117,7 +123,11 @@ public class MainPageActivity extends AppCompatActivity
             case 0:
                 return workFragment;
             case 1:
-                return worktodoFragment;
+                return infoFragment;
+            case 2:
+                return contactFragment;
+            case 3:
+                return moreFragment;
         }
         return null;
     }

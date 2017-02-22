@@ -1,4 +1,4 @@
-package com.zh.oademo.oademo.work;
+package com.zh.oademo.oademo.info;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,14 +12,13 @@ import com.dexafree.materialList.card.Card;
 import com.zh.oademo.oademo.R;
 import com.zh.oademo.oademo.common.BaseFragment;
 import com.zh.oademo.oademo.common.CardGenerator;
-import com.zh.oademo.oademo.entity.WorkContent;
+import com.zh.oademo.oademo.entity.InfoContent;
 import com.zh.oademo.oademo.mainframe.MainPageActivity;
 import com.zh.oademo.oademo.net.NetObserver;
 import com.zh.oademo.oademo.net.NetUtil;
 import com.zh.oademo.oademo.plugins.materiallist.MaterialListView;
 import com.zh.oademo.oademo.plugins.materiallist.RecyclerItemClickListener;
 import com.zh.oademo.oademo.util.AuthParams;
-import com.zh.oademo.oademo.util.Formatter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,11 +28,11 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 
 
-public class WorkFragment extends BaseFragment implements NetObserver.DataReceiver {
+public class InfoFragment extends BaseFragment implements NetObserver.DataReceiver {
 
     @InjectView(R.id.worktypes)
     MaterialListView workTypes;
-    List<WorkContent> contents;
+    List<InfoContent> contents;
     MainPageActivity activity;
 
     @Nullable
@@ -48,7 +47,7 @@ public class WorkFragment extends BaseFragment implements NetObserver.DataReceiv
         Map<String, String> authParams = AuthParams.getPaams(activity.getSharedPreferences("loginInfo", Context.MODE_PRIVATE));
 
         contents = new ArrayList<>();
-        NetUtil.SetObserverCommonAction(NetUtil.getServices().getWorkType(authParams.get("m_timestamp"), authParams.get("userid"), authParams.get("m_auth_t")))
+        NetUtil.SetObserverCommonAction(NetUtil.getServices().getInfoType(authParams.get("m_timestamp"), authParams.get("userid"), authParams.get("m_auth_t")))
                 .subscribe(new NetObserver(activity, this));
 
         workTypes.scrollToPosition(0);
@@ -71,9 +70,9 @@ public class WorkFragment extends BaseFragment implements NetObserver.DataReceiv
 
     private void toTypeDetail(int position) {
         Intent intent = new Intent();
-        intent.setClass(getActivity(), WorkListActivity.class);
+        intent.setClass(getActivity(), InfoListActivity.class);
         Bundle bundle = new Bundle();
-        bundle.putSerializable("worktype", contents.get(position).getWorkType());
+        bundle.putSerializable("infoType", contents.get(position).getInfoType());
         intent.putExtras(bundle);
         getActivity().startActivity(intent);
     }
@@ -81,21 +80,20 @@ public class WorkFragment extends BaseFragment implements NetObserver.DataReceiv
     @Override
     @SuppressWarnings("unchecked")
     public void handle(Object data) {
-        //Log.d("oademo", "work types:" + data);
+        //Log.d("oademo", "info types:" + data);
 
-        ArrayList<Map> typeList = (ArrayList<Map>) data;
-        for (Map workType : typeList) {
-            WorkContent content = new WorkContent(workType.get("title").toString(), "", "", CardGenerator.CARDTYPE.TITLE_CARD);
-            int count = Formatter.removePointInt(workType.get("count"));
-            if (count > 0) {
-                content.setShowNumber(count);
+        if (data != null) {
+            Map info = (Map) data;
+            ArrayList<Map> typeList = (ArrayList<Map>) info.get("types");
+            for (Map infoType : typeList) {
+                InfoContent content = new InfoContent(infoType.get("title").toString(), infoType.get("description").toString(), "", CardGenerator.CARDTYPE.TEXT_CARD);
+                content.setInfoType(infoType.get("type").toString());
+                contents.add(content);
             }
-            content.setWorkType(workType.get("type").toString());
-            contents.add(content);
-        }
 
-        for (WorkContent content : contents) {
-            workTypes.getAdapter().add(CardGenerator.getInstance().generateCard(getActivity(), content.getCardtype(), content));
+            for (InfoContent content : contents) {
+                workTypes.getAdapter().add(CardGenerator.getInstance().generateCard(getActivity(), content.getCardtype(), content));
+            }
         }
     }
 
