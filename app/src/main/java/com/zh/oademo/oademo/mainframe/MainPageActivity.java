@@ -45,7 +45,7 @@ public class MainPageActivity extends AppCompatActivity
         ButterKnife.inject(this);
         initView();
 
-        ((MyApplication) getApplication()).getInstance().addActivity(this);
+        MyApplication.addActivity(this);
     }
 
     private void initView() {
@@ -66,9 +66,9 @@ public class MainPageActivity extends AppCompatActivity
 
         FragmentTransaction transaction = fm.beginTransaction();
         transaction.replace(R.id.layFrame, workFragment);
-
         transaction.commit();
 
+        onTabSelected(0);
     }
 
     public List<TabItem> getTabs() {

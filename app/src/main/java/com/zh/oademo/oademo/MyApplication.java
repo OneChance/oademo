@@ -14,31 +14,23 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class MyApplication extends Application {
-    public static String VERSION = "1.0";
-    private static List<Activity> mList = new LinkedList();
+    public static String VERSION = "1.1";
+    private static List<Activity> mList = new LinkedList<Activity>();
     public static int mainPageTab = 0;
     private static Context context;
-
-    private static MyApplication instance;
 
     @Override
     public void onCreate() {
         context = getApplicationContext();
+        //CrashHandler.getInstance().init(this);
         super.onCreate();
     }
 
-    public MyApplication getInstance() {
-        if (null == instance) {
-            instance = new MyApplication();
-        }
-        return instance;
-    }
-
-    public void addActivity(Activity activity) {
+    public static void addActivity(Activity activity) {
         mList.add(activity);
     }
 
-    public void exit() {
+    public static void exit() {
         try {
             for (Activity activity : mList) {
                 if (activity != null)
@@ -57,9 +49,9 @@ public class MyApplication extends Application {
         Toast toast = new Toast(context);
         TextView textView = (TextView) toastView.findViewById(R.id.toast_notice);
         if (success) {
-            textView.setBackgroundColor(ContextCompat.getColor(context,R.color.success));
+            textView.setBackgroundColor(ContextCompat.getColor(context, R.color.success));
         } else {
-            textView.setBackgroundColor(ContextCompat.getColor(context,R.color.error));
+            textView.setBackgroundColor(ContextCompat.getColor(context, R.color.error));
         }
         textView.setText(msg);
         toast.setView(toastView);

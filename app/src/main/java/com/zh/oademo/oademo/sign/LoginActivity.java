@@ -6,10 +6,12 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -21,12 +23,13 @@ import android.widget.TextView;
 import com.zh.oademo.oademo.MyApplication;
 import com.zh.oademo.oademo.R;
 import com.zh.oademo.oademo.mainframe.MainPageActivity;
+import com.zh.oademo.oademo.net.IServices;
+import com.zh.oademo.oademo.net.NetConfig;
 import com.zh.oademo.oademo.net.NetObserver;
 import com.zh.oademo.oademo.net.NetUtil;
+import com.zh.oademo.oademo.util.AuthParams;
 import com.zh.oademo.oademo.util.Formatter;
 
-import java.math.BigInteger;
-import java.security.MessageDigest;
 import java.util.Map;
 
 import butterknife.ButterKnife;
@@ -48,8 +51,9 @@ public class LoginActivity extends AppCompatActivity implements NetObserver.Data
     View mLoginFormView;
     @InjectView(R.id.email_sign_in_button)
     Button signInButton;
+    @InjectView(R.id.downloading)
+    TextView downloading;
     String passwordMD5;
-
     Context context;
 
     @Override
@@ -78,7 +82,11 @@ public class LoginActivity extends AppCompatActivity implements NetObserver.Data
             }
         });
 
-        ((MyApplication) getApplication()).getInstance().addActivity(this);
+        MyApplication.addActivity(this);
+
+        //检查是否需要更新
+        NetUtil.SetObserverCommonAction(NetUtil.getServices().checkUpdate())
+                .subscribe(new NetObserver(context, this, IServices.CODE_CHECK_UPDATE));
     }
 
     /**
@@ -117,12 +125,9 @@ public class LoginActivity extends AppCompatActivity implements NetObserver.Data
             focusView.requestFocus();
         } else {
             try {
-                MessageDigest md = MessageDigest.getInstance("MD5");
-                md.update(password.getBytes());
-                password = new BigInteger(1, md.digest()).toString(16);
-                passwordMD5 = password;
-                NetUtil.SetObserverCommonAction(NetUtil.getServices().Login(account, password))
-                        .subscribe(new NetObserver(context, this));
+                passwordMD5 = AuthParams.getMD5Code(password);
+                NetUtil.SetObserverCommonAction(NetUtil.getServices().Login(account, passwordMD5))
+                        .subscribe(new NetObserver(context, this, IServices.CODE_LOGIN));
                 showProgress(true);
             } catch (Exception e) {
 
@@ -168,28 +173,49 @@ public class LoginActivity extends AppCompatActivity implements NetObserver.Data
 
     @Override
     public void onBackPressed() {
-        ((MyApplication) getApplication()).getInstance().exit();
+        MyApplication.exit();
     }
 
     @Override
     protected void onResume() {
         showProgress(false);
+        downloading.setVisibility(View.INVISIBLE);
         super.onResume();
     }
 
     @Override
-    public void handle(Object data) {
-        Map loginInfo = ((Map) data);
-        SharedPreferences sharedPreferences = getSharedPreferences("loginInfo", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("userid", Formatter.removePointString(loginInfo.get("userid")));
-        editor.putString("passwordMD5", passwordMD5);
-        editor.apply();
-        Intent intent = new Intent();
-        intent.setClass(context, MainPageActivity.class);
-        Bundle bundle = new Bundle();
-        intent.putExtras(bundle);
-        context.startActivity(intent);
+    public void handle(Object data, int code) {
+        final Map loginInfo = ((Map) data);
+
+        Log.d("oademo", data + "");
+
+        if (code == IServices.CODE_CHECK_UPDATE) {
+            if (loginInfo.get("updateTips") != null) {
+                showProgress(true);
+                downloading.setText(loginInfo.get("updateTips").toString());
+                downloading.setVisibility(View.VISIBLE);
+                String url = loginInfo.get("updateUrl").toString();
+                if (!url.startsWith("http")) {
+                    url = "http://" + NetConfig.IP + url;
+                }
+                Intent intent = new Intent();
+                intent.setAction("android.intent.action.VIEW");
+                Uri content_url = Uri.parse(url);
+                intent.setData(content_url);
+                startActivity(intent);
+            }
+        } else if (code == IServices.CODE_LOGIN) {
+            SharedPreferences sharedPreferences = getSharedPreferences("loginInfo", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("userid", Formatter.removePointString(loginInfo.get("userid")));
+            editor.putString("passwordMD5", passwordMD5);
+            editor.apply();
+            Intent intent = new Intent();
+            intent.setClass(context, MainPageActivity.class);
+            Bundle bundle = new Bundle();
+            intent.putExtras(bundle);
+            context.startActivity(intent);
+        }
     }
 
     @Override

@@ -14,6 +14,7 @@ import com.zh.oademo.oademo.common.BaseFragment;
 import com.zh.oademo.oademo.common.CardGenerator;
 import com.zh.oademo.oademo.entity.InfoContent;
 import com.zh.oademo.oademo.mainframe.MainPageActivity;
+import com.zh.oademo.oademo.net.IServices;
 import com.zh.oademo.oademo.net.NetObserver;
 import com.zh.oademo.oademo.net.NetUtil;
 import com.zh.oademo.oademo.plugins.materiallist.MaterialListView;
@@ -35,6 +36,8 @@ public class InfoFragment extends BaseFragment implements NetObserver.DataReceiv
     List<InfoContent> contents;
     MainPageActivity activity;
 
+
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -48,7 +51,7 @@ public class InfoFragment extends BaseFragment implements NetObserver.DataReceiv
 
         contents = new ArrayList<>();
         NetUtil.SetObserverCommonAction(NetUtil.getServices().getInfoType(authParams.get("m_timestamp"), authParams.get("userid"), authParams.get("m_auth_t")))
-                .subscribe(new NetObserver(activity, this));
+                .subscribe(new NetObserver(activity, this, IServices.CODE_INFO_TYPE));
 
         workTypes.scrollToPosition(0);
 
@@ -79,7 +82,7 @@ public class InfoFragment extends BaseFragment implements NetObserver.DataReceiv
 
     @Override
     @SuppressWarnings("unchecked")
-    public void handle(Object data) {
+    public void handle(Object data,int code) {
         //Log.d("oademo", "info types:" + data);
 
         if (data != null) {
@@ -92,7 +95,7 @@ public class InfoFragment extends BaseFragment implements NetObserver.DataReceiv
             }
 
             for (InfoContent content : contents) {
-                workTypes.getAdapter().add(CardGenerator.getInstance().generateCard(getActivity(), content.getCardtype(), content));
+                workTypes.getAdapter().add(CardGenerator.getInstance().generateCard(activity, content.getCardtype(), content));
             }
         }
     }

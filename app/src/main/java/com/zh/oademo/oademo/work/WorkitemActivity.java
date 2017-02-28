@@ -81,6 +81,6 @@ public class WorkitemActivity extends AppCompatActivity {
             }
         });
 
-        ((MyApplication) getApplication()).getInstance().addActivity(this);
+        MyApplication.addActivity(this);
     }
 }

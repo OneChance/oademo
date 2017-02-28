@@ -14,6 +14,7 @@ import com.zh.oademo.oademo.common.BaseFragment;
 import com.zh.oademo.oademo.common.CardGenerator;
 import com.zh.oademo.oademo.entity.WorkContent;
 import com.zh.oademo.oademo.mainframe.MainPageActivity;
+import com.zh.oademo.oademo.net.IServices;
 import com.zh.oademo.oademo.net.NetObserver;
 import com.zh.oademo.oademo.net.NetUtil;
 import com.zh.oademo.oademo.plugins.materiallist.MaterialListView;
@@ -49,7 +50,7 @@ public class WorkFragment extends BaseFragment implements NetObserver.DataReceiv
 
         contents = new ArrayList<>();
         NetUtil.SetObserverCommonAction(NetUtil.getServices().getWorkType(authParams.get("m_timestamp"), authParams.get("userid"), authParams.get("m_auth_t")))
-                .subscribe(new NetObserver(activity, this));
+                .subscribe(new NetObserver(activity, this, IServices.CODE_WORK_TYPE));
 
         workTypes.scrollToPosition(0);
 
@@ -80,7 +81,7 @@ public class WorkFragment extends BaseFragment implements NetObserver.DataReceiv
 
     @Override
     @SuppressWarnings("unchecked")
-    public void handle(Object data) {
+    public void handle(Object data,int code) {
         //Log.d("oademo", "work types:" + data);
 
         ArrayList<Map> typeList = (ArrayList<Map>) data;
@@ -95,7 +96,7 @@ public class WorkFragment extends BaseFragment implements NetObserver.DataReceiv
         }
 
         for (WorkContent content : contents) {
-            workTypes.getAdapter().add(CardGenerator.getInstance().generateCard(getActivity(), content.getCardtype(), content));
+            workTypes.getAdapter().add(CardGenerator.getInstance().generateCard(activity, content.getCardtype(), content));
         }
     }
 

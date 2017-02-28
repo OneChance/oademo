@@ -40,7 +40,7 @@ public class NetUtil {
                                     .scheme(oldRequest.url().scheme())
                                     .host(oldRequest.url().host())
                                     .addQueryParameter("m_version", MyApplication.VERSION)
-                                    .addQueryParameter("m_device", "1")
+                                    .addQueryParameter("m_device", "android")
                                     .addQueryParameter("m_language", "chinese");
 
                             Request newRequest = oldRequest.newBuilder()
@@ -48,19 +48,19 @@ public class NetUtil {
                                     .url(authorizedUrlBuilder.build())
                                     .build();
 
-                            Log.d("oademo", "net url:" + newRequest.url());
+                            String url = newRequest.url().toString();
 
                             if ("POST".equals(newRequest.method())) {
                                 StringBuilder sb = new StringBuilder();
                                 if (newRequest.body() instanceof FormBody) {
                                     FormBody body = (FormBody) newRequest.body();
                                     for (int i = 0; i < body.size(); i++) {
-                                        sb.append(body.encodedName(i) + "=" + body.encodedValue(i) + ",");
+                                        url = url + "&" + body.encodedName(i) + "=" + body.encodedValue(i);
                                     }
-                                    sb.delete(sb.length() - 1, sb.length());
-                                    Log.d("oademo", "| RequestParams:{" + sb.toString() + "}");
                                 }
                             }
+
+                            Log.d("oademo", "net url:" +url);
 
                             return chain.proceed(newRequest);
                         }

@@ -16,6 +16,7 @@ import com.dexafree.materialList.card.Card;
 import com.zh.oademo.oademo.R;
 import com.zh.oademo.oademo.common.CardGenerator;
 import com.zh.oademo.oademo.entity.WorkContent;
+import com.zh.oademo.oademo.net.IServices;
 import com.zh.oademo.oademo.net.NetObserver;
 import com.zh.oademo.oademo.net.NetUtil;
 import com.zh.oademo.oademo.plugins.materiallist.MaterialListView;
@@ -117,12 +118,12 @@ public class WorkListActivity extends AppCompatActivity implements NetObserver.D
         //Log.d("oademo", "get page:" + page);
         Map<String, String> authParams = AuthParams.getPaams(getSharedPreferences("loginInfo", Context.MODE_PRIVATE));
         NetUtil.SetObserverCommonAction(NetUtil.getServices().getWorkList(page + "", type, authParams.get("m_timestamp"), authParams.get("userid"), authParams.get("m_auth_t")))
-                .subscribe(new NetObserver(this, this));
+                .subscribe(new NetObserver(this, this, IServices.CODE_WORK_LIST));
     }
 
     @Override
     @SuppressWarnings("unchecked")
-    public void handle(Object data) {
+    public void handle(Object data,int code) {
         Log.d("oademo", "work items:" + data);
 
         if (data != null) {

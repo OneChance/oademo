@@ -82,6 +82,6 @@ public class InfoItemActivity extends AppCompatActivity {
             }
         });
 
-        ((MyApplication) getApplication()).getInstance().addActivity(this);
+        MyApplication.addActivity(this);
     }
 }

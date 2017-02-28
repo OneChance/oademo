@@ -241,7 +241,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
-        sha1="309df66e862e28983fd4403d7dc381cefe9f80d3">
+        sha1="7d06e89df4de11ddc1799709e2b54c784003b059">
         <dex dex="D:\OLDCOMPUTER\OTHER\Android\templetes\oademo\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_cc88a8c89e717c0da3dde08b44c224efca63b017\classes.dex" />
     </item>
     <item

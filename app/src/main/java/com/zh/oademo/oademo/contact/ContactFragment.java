@@ -23,6 +23,7 @@ import com.zh.oademo.oademo.R;
 import com.zh.oademo.oademo.common.BaseFragment;
 import com.zh.oademo.oademo.common.CardGenerator;
 import com.zh.oademo.oademo.entity.ContactContent;
+import com.zh.oademo.oademo.net.IServices;
 import com.zh.oademo.oademo.net.NetObserver;
 import com.zh.oademo.oademo.net.NetUtil;
 import com.zh.oademo.oademo.plugins.materiallist.MaterialListView;
@@ -130,7 +131,7 @@ public class ContactFragment extends BaseFragment implements NetObserver.DataRec
     public void getContacts(String search) {
         Map<String, String> authParams = AuthParams.getPaams(getActivity().getSharedPreferences("loginInfo", Context.MODE_PRIVATE));
         NetUtil.SetObserverCommonAction(NetUtil.getServices().getContacts(search, authParams.get("m_timestamp"), authParams.get("userid"), authParams.get("m_auth_t")))
-                .subscribe(new NetObserver(context, this));
+                .subscribe(new NetObserver(context, this, IServices.CODE_CONTACT_LIST));
     }
 
     public void queryContent(String query) {
@@ -147,7 +148,7 @@ public class ContactFragment extends BaseFragment implements NetObserver.DataRec
 
     @Override
     @SuppressWarnings("unchecked")
-    public void handle(Object data) {
+    public void handle(Object data,int code) {
 
         //Log.d("oademo", "contacts:" + data);
 
